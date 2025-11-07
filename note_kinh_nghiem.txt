@@ -1,0 +1,2 @@
+random.choices(iter, list_of_weight): Tra ve danh sach
++ Co the vua lam [] hoac {} dua tren 1 tieu chi khac
