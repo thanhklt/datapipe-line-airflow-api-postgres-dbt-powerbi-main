@@ -1,2 +1,39 @@
 random.choices(iter, list_of_weight): Tra ve danh sach
 + Co the vua lam [] hoac {} dua tren 1 tieu chi khac
+
+. Dữ liệu Khách hàng (Customers)
+Đây là nghiệp vụ quản lý dữ liệu tĩnh của khách hàng (thường là công ty).
+
+Đăng ký và Đặc điểm: Mỗi khách hàng được gán một định danh duy nhất (customer_id), tên công ty, ngày đăng ký (signup_date), và các thuộc tính nhân khẩu học (demographics) quan trọng như Quốc gia (country), Ngành nghề (industry), và Quy mô công ty (company_size).
+
+Trọng số Phân bổ: Các thuộc tính như Quốc gia và Ngành nghề được phân bổ theo trọng số, ví dụ: Mỹ (US) có xác suất cao nhất (35%).
+
+Trạng thái Churn: Khách hàng có xác suất cố định là 18% để bị đánh dấu là đã bỏ đi (churned).
+
+2. Dữ liệu Thanh toán (Payments)
+Đây là nghiệp vụ theo dõi các giao dịch tài chính liên quan đến khách hàng.
+
+Mối quan hệ: Mỗi giao dịch thanh toán đều phải liên kết với một Khách hàng đã có.
+
+Giá và Số lượng: Số tiền thanh toán (amount) được xác định dựa trên Giá sản phẩm cơ bản (PRICES) nhân với số lượng ghế (seat) (nếu là sản phẩm Pro/Enterprise).
+
+Tính linh hoạt theo Ngành: Trọng số để mua các loại sản phẩm khác nhau (Basic, Pro, Enterprise, Addons) thay đổi tùy thuộc vào Ngành nghề của khách hàng (ví dụ: Công ty SaaS có xu hướng mua Pro và Enterprise cao hơn so với E-commerce).
+
+Trạng thái Giao dịch: Thanh toán có thể ở trạng thái thành công (succeeded), thất bại (failed), hoặc được hoàn tiền (refunded), với xác suất thành công là cao nhất (90%).
+
+Phí và Hoàn tiền: Giao dịch có tính toán phí cố định (fee) và có thể có số tiền hoàn lại ngẫu nhiên nếu trạng thái là refunded.
+
+3. Dữ liệu Phiên truy cập (Sessions)
+Đây là nghiệp vụ theo dõi hành vi người dùng trên website hoặc ứng dụng.
+
+Thời gian: Các phiên truy cập được tạo ra ngẫu nhiên nhưng có giảm trọng số vào cuối tuần (20% cơ hội bị bỏ qua).
+
+Khách hàng liên kết: Chỉ một phần nhỏ (35%) các phiên truy cập là của người dùng đã đăng nhập (có customer_id), còn lại là khách truy cập ẩn danh.
+
+Hành vi:
+
+Lượt xem trang (pageviews) và Thời lượng (session_duration_s) được tạo theo các phân phối ngẫu nhiên mô phỏng hành vi tự nhiên (phân phối mũ và gamma).
+
+Thoát ra (Bounced): Một phiên bị coi là bị thoát ra nếu chỉ xem 1 trang VÀ thời lượng dưới 10 giây.
+
+Chuyển đổi (Conversion): Xác suất chuyển đổi (converted) được tính dựa trên nhiều yếu tố cộng dồn như phương tiện (medium), thiết bị (device), và số lượt xem trang, mô phỏng các kênh tiếp thị hiệu quả hơn.
