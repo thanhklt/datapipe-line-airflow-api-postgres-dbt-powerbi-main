@@ -1,6 +1,13 @@
 random.choices(iter, list_of_weight): Tra ve danh sach
 + Co the vua lam [] hoac {} dua tren 1 tieu chi khac
 
+Mock api:
+- chaos testing() test muc do sức chiu dung
+- paginate() dùng để phân trang dữ liệu cho dữ liệu lớn
+- check_rate_limit() dùng để giới hạn tần suất request (rate limiting) cho API
+
+
+
 . Dữ liệu Khách hàng (Customers)
 Đây là nghiệp vụ quản lý dữ liệu tĩnh của khách hàng (thường là công ty).
 
@@ -37,3 +44,5 @@ Lượt xem trang (pageviews) và Thời lượng (session_duration_s) được 
 Thoát ra (Bounced): Một phiên bị coi là bị thoát ra nếu chỉ xem 1 trang VÀ thời lượng dưới 10 giây.
 
 Chuyển đổi (Conversion): Xác suất chuyển đổi (converted) được tính dựa trên nhiều yếu tố cộng dồn như phương tiện (medium), thiết bị (device), và số lượt xem trang, mô phỏng các kênh tiếp thị hiệu quả hơn.
+
+
